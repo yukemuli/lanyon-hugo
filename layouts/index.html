@@ -13,18 +13,21 @@
   {{ end }}
 </div>
 
-<div class="pagination">
-  {{ if $paginator.HasNext }}
-  <a class="pagination-item older" href="{{ $paginator.Next.URL }}">Older</a>
-  {{ else }}
-  <span class="pagination-item older">Older</span>
-  {{ end }}
+{{ $length := len .Data.Pages }}
+{{ if gt $length $paginator.PageSize }}
+  <div class="pagination">
+    {{ if $paginator.HasNext }}
+    <a class="pagination-item older" href="{{ $paginator.Next.URL }}">Older</a>
+    {{ else }}
+    <span class="pagination-item older">Older</span>
+    {{ end }}
 
-  {{ if $paginator.HasPrev }}
-  <a class="pagination-item newer" href="{{ $paginator.Prev.URL }}">Newer</a>
-  {{ else }}
-  <span class="pagination-item newer">Newer</span>
-  {{ end }}
-</div>
+    {{ if $paginator.HasPrev }}
+    <a class="pagination-item newer" href="{{ $paginator.Prev.URL }}">Newer</a>
+    {{ else }}
+    <span class="pagination-item newer">Newer</span>
+    {{ end }}
+  </div>
+{{ end }}
 
 {{ partial "default_foot.html" . }}
