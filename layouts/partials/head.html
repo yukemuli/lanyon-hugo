@@ -19,6 +19,11 @@
   <link rel="stylesheet" href="/css/lanyon.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
 
+  {{ range .Site.Params.Custom_Css }}
+    <link rel="stylesheet" href="{{.}}">
+  {{ end }}
+
+
   <!-- Icons -->
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/apple-touch-icon-144-precomposed.png">
   <link rel="shortcut icon" href='{{ .Site.Params.Favicon | default "/assets/favicon.ico" }}'>
