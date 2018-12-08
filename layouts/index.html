@@ -6,8 +6,8 @@
 <div class="posts">
   {{ range $index, $e := .Paginator.Pages }}
     <div class="post">
-        <h1 class='post-title {{ if gt .Date now }}upcoming{{ end }}'><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
-        <span class="post-date">{{ .Site.Params.DateForm | default "Jan 2, 2006" | .Date.Format }}</span>
+        <h1 class='post-title'><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
+        <span class="post-date {{ if gt .Date now }}upcoming{{ end }}">{{ .Site.Params.DateForm | default "Jan 2, 2006" | .Date.Format }}</span>
         {{ if eq $index 0 }}
           {{ .Content }}
         {{ else }}
