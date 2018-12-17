@@ -5,13 +5,16 @@
   <!-- Enable responsiveness on mobile devices-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-  <title>
-    {{ if eq .URL "/" }}
-      {{ .Site.Params.Title }} {{ .Site.Params.Tagline }}
-    {{ else }}
-      {{ .Title }} - {{ .Site.Params.Title }}
-    {{ end }}
-  </title>
+  {{ if eq .URL "/" }}
+    <title>{{ .Site.Params.Title }} {{ .Site.Params.Tagline }}</title>
+  {{ else }}
+    <title>{{ .Title }} - {{ .Site.Params.Title }}</title>
+  {{ end }}
+
+  <!-- SEO -->
+  {{ if and (.Params.Caption) (ne .Params.Caption "") }}
+    <meta property="og:image" content="{{.Params.Caption | absURL }}" />
+  {{ end }}
 
   <!-- CSS -->
   <link rel="stylesheet" href="/css/poole.css">
