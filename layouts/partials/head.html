@@ -18,9 +18,9 @@
   {{ end }}
 
   <!-- Image -->
-  {{ if and (.Params.Caption) (ne .Params.Caption "") }}
-    <meta property="og:image" content="{{.Params.Caption | absURL }}" />
-    <meta name="twitter:image" content="{{.Params.Caption | absURL }}" />
+  {{ if and (.Site.Params.Caption) (ne .Site.Params.Caption "") }}
+    <meta property="og:image" content="{{.Site.Params.Caption | absURL }}" />
+    <meta name="twitter:image" content="{{.Site.Params.Caption | absURL }}" />
   {{ end }}
 
   <!-- Description -->
